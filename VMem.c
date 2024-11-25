@@ -16,14 +16,17 @@ int main() {
 
     long int virtualAddress = (long int) &ptr;
 
-    printf("virtual_address = %#lx\n", virtualAddress);
+    long int pageOffset = virtualAddress & 0xFFF;
+    long int ptIndex = (virtualAddress >> 12) & 0x1FF; // 0x1FF is 9 0001 1111 1111, which will derive 9 bits
+    long int pdIndex = (virtualAddress >> 21) & 0x1FF;
+    long int pdpIndex = (virtualAddress >> 30) & 0x1FF;
+    long int pml4Index = (virtualAddress >> 39) & 0x1FF;
 
-    long int pageOffset = 
-
-    
-    
-    
-    
+    printf("virtual address = %#lx\n", virtualAddress);
+    printf("Page Map Level 4 Index = %lu\n", pml4Index);    
+    printf("Page Directory Pointer Index = %lu\n", pdpIndex);
+    printf("Page Directory Index = %lu\n", pdIndex);
+    printf("Page Table Index = %lu\n", ptIndex);
     
     
     free(ptr);
