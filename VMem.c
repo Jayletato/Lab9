@@ -3,7 +3,6 @@
 #include <stdint.h>
 
 #define PAGE_SIZE 4096 // 4 KiB of memory
-#define OFFSET_SIZE 512 //  
 
 int main() {
     void  *ptr;
