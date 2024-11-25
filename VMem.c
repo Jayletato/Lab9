@@ -11,7 +11,6 @@ int main() {
         printf("Memory allocation unsuccessful!\n");
         exit(EXIT_FAILURE);
     }
-    printf("The virtual memory address starts at : %p\n", &ptr);
 
     long int virtualAddress = (long int) &ptr;
 
@@ -21,7 +20,7 @@ int main() {
     long int pdpIndex = (virtualAddress >> 30) & 0x1FF;
     long int pml4Index = (virtualAddress >> 39) & 0x1FF;
 
-    printf("virtual address = %#lx\n", virtualAddress);
+    printf("The virtual memory address starts at : %p\n", &ptr);
     printf("Page Map Level 4 Index = %lu\n", pml4Index);    
     printf("Page Directory Pointer Index = %lu\n", pdpIndex);
     printf("Page Directory Index = %lu\n", pdIndex);
